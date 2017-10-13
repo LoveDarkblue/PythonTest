@@ -1,21 +1,18 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-'a module'
+class Student(object):
+    def __init__(self, name, sex):
+        self.name = name
+        self.sex = sex
 
-__author__ = 'admin'
-
-import sys
-
-
-def test():
-    args = sys.argv
-    if len(args) <= 1:
-        print('hello')
-    elif len(args) <= 2:
-        print('hello,%s' % args[1])
-    else:
-        print('Too many argments!')
+    def printInfo(self):
+        print(self.name, self.sex)
 
 
-if __name__ == '__main__':
-    test()
+std1 = Student("Mary", '女')
+std2 = Student('Tom', '男')
+
+std1.printInfo()
+std2.printInfo()
+
+std1.age = 18
+print(std1.age)
+print(std2.age)

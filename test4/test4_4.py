@@ -1,14 +1,10 @@
-def _f1():
-    print('f1')
+from PIL import Image
 
+# 打开一张当路径下的图片
+im = Image.open('a.jpg')
+# 获取此图片的信息
+print(im.format, im.size, im.mode)
 
-def _f2():
-    print('f2')
-
-
-def f3(name):
-    if name == 'f1':
-        return _f1()
-    else:
-        return _f2()
-
+# 生成缩略图
+im.thumbnail((200, 130))
+im.save('a1.jpg', 'JPEG')

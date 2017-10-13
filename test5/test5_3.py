@@ -1,22 +1,29 @@
-class Student(object):
-    def __init__(self, name, sex):
-        self.name = name
-        self.sex = sex
-        self.__age = 18
-
-    def printInfo(self):
-        print(self.name, self.sex)
-
-    def get_age(self):
-        return self.__age
+class Animal(object):
+    def run(self):
+        print('Animal is running')
 
 
-std1 = Student("Mary", '女')
+class Cat(Animal):
+    pass
 
-std1.printInfo()
 
-print(std1.get_age())
+class Dog(Animal):
+    def run(self):
+        print('Dog is running')
 
-std1.__age = 20
-print(std1.__age)
-print(std1.get_age())
+
+def f1(animal):
+    animal.run()
+
+
+f1(Cat())
+f1(Dog())
+f1(Animal())
+
+
+class aaa(object):
+    def run(self):
+        print('aaa is running')
+
+
+f1(aaa())

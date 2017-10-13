@@ -1,35 +1,19 @@
-import types
-import test5.test5_3
+class Person(object):
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 
-print(type(123))
-print(type('123'))
-print(type(123) == int)
-print(type('abc') == str)
-print(type('abc') == type('1'))
-
-
-# 判断是否是函数
-def f1():
-    pass
+    def f1(self, msg):
+        print('persion say ' + msg)
 
 
-print(type(f1) == types.FunctionType)
-print(type(abs) == types.BuiltinFunctionType)
-print(type(lambda x: x) == types.LambdaType)
-print(type((x for x in range(10))) == types.GeneratorType)
+p = Person("Tom", 19)
+print(hasattr(p, "name"))
 
-print(type(test5.test5_3.Cat()) == test5.test5_3.Animal)  # false
+setattr(p, "name", 'Mary')
+print(getattr(p, 'name', "11"))  # 第三个参数是默认值，如果获取不到就返回这个默认值
 
-print(isinstance(test5.test5_3.Cat(), test5.test5_3.Animal))
+print(getattr(p, "sex", "男"))
 
-print(isinstance((1, 2, 3), (int, str)))
-
-# 获取'123'这个实例里所有的属性和方法
-print(dir('123'))
-
-class ddd(object):
-    def __len__(self):
-        return 100
-
-d = ddd()
-print(len(d))
+f = getattr(p, 'f1')
+f('sss')
