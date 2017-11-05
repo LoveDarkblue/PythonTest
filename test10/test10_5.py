@@ -3,14 +3,12 @@ import threading
 lock = threading.Lock()
 
 
-# lock = threading.Lock()
-
 def methodRun():
-    lock.acquire()#获取锁
+    lock.acquire()  # 获取锁
     try:
         print('thread %s is running...' % threading.current_thread().name)
     finally:
-        lock.release()#释放锁
+        lock.release()  # 释放锁
 
 
 print('thread %s is running...' % threading.current_thread().name)
