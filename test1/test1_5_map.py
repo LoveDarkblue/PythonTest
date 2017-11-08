@@ -3,6 +3,9 @@ students = {'z1': 18,
             'z2': 19,
             "z3": 20,
             'z3': 21, }
+# 另一种定义的方式
+# students = dict([('z1', 18), ('z2', 19)])
+
 # 取值
 print(students['z1'], students.get('z2'))
 
