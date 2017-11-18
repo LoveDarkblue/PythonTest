@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<info><intro>Book message</intro>
+    <list id='001'>
+        <name>book1</name>
+        <price>100</price>
+    </list>
+
+    <list id='002'>
+        <name>book2</name>
+        <price>200</price>
+    </list>
+</info>

@@ -1,32 +1,24 @@
-from collections import namedtuple, deque, defaultdict, OrderedDict, Counter
+import base64
 
-# namedtuple
-Point = namedtuple('Point', ['x', 'y'])
-p = Point(1, 2)
-print(p.x, p.y)
+# print(base64.b64encode(b'abc'))
+# print(base64.b64decode(b'YWJj'))
+#
+# print(base64.b64encode(b'i\xb7\x1d\xfb\xef\xff'))  # 普通编码，会出现+和/
+# print(base64.urlsafe_b64encode(b'i\xb7\x1d\xfb\xef\xff'))  # url safe编码，把+和/变成了-_
+# print(base64.urlsafe_b64decode(b'abcd--__'))
+# print(base64.urlsafe_b64decode(b'abcd++//'))
 
-# deque
-d = deque([1, 2, 3])
-d.append(4)
-d.appendleft(0)
-print(d)
+print(base64.b64encode(b'abcd'))
+print(base64.b64decode(b'YWJjZA=='))
 
-# defaultdict
-defaultd = defaultdict(lambda: "sss")
-defaultd['key1'] = 'abc'
-print(defaultd['key1'])
-print(defaultd['key2'])
 
-# OrderedDict
-d1 = dict([('x', 1), ('y', 2), ('z', 3)])  # 无序
-print(d1)
+def safe_base64_decode(c):
+    clength = 0
+    if isinstance(c, bytes):
+        c = str(c, encoding='utf-8')
+        clength = len(c) % 4
+    return base64.b64decode(c + '=' * clength)
 
-d2 = OrderedDict([('x', 1), ('y', 2), ('z', 3)])  # 有序
-for i in d2:
-    print('%s=%s' % (i, d2[i]))
 
-# Counter
-c = Counter()
-for i in 'aaabcccdd':
-    c[i] = c[i] + 1
-print(c)
+assert b'abcd' == safe_base64_decode(b'YWJjZA=='), safe_base64_decode('YWJjZA==')
+assert b'abcd' == safe_base64_decode(b'YWJjZA'), safe_base64_decode('YWJjZA')
