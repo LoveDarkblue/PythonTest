@@ -1,6 +1,5 @@
 from urllib import request, parse
 
-et
 with request.urlopen('http://www.sojson.com/open/api/weather/json.shtml?city=%s' % parse.quote("北京")) as f:
     data = f.read()
     print('Status:', f.status, f.reason)
@@ -17,7 +16,6 @@ with request.urlopen('http://www.sojson.com/open/api/weather/json.shtml?city=%s'
 #         print('%s: %s' % (k, v))
 #     print('response:', f.read().decode('utf-8'))
 
-st
 params = parse.urlencode([
     ('key1', 'value1'),
     ('key2', 'value2')])
